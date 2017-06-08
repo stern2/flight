@@ -1,0 +1,132 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<style>
+<!--
+    a:link{text-decoration:none; color:blue;}
+    a:visited{text-decoration:none; color:blue;}
+
+    tr.list:hover
+    {
+        background-color:#FFFFB0
+    }
+	
+-->
+</style>
+
+<!-- start navigation -->
+<title>携程航班查询</title>
+<!-- end navigation -->
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="layer/layer.js"></script>
+<script type="text/javascript" src="js/wdate/WdatePicker.js"></script>
+<script type="text/javascript" src="js/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="js/hogan-2.0.0.min.js"></script>
+<script type="text/javascript" src="js/fixdiv.js"></script>
+<script type="text/javascript" src="js/address.js"></script>
+
+<!-- start MENU -->
+</head>
+<body bgcolor="#FFFFFF" text="#2F5E2F" link="#0016AE" vlink="#0016AE">
+<!-- end MENU -->
+
+<table width=900 border=0 align="center" cellpadding=4 cellspacing=0>
+                  <tr>
+                    <td> </td>
+                  </tr>
+                  <tr>
+                    <td bgcolor="#a4c893" align="left">
+                      <b> &gt;&gt; 航班查询</b>
+                    </td>
+                  </tr>
+</table>
+
+<br>
+
+<table width=900 border=0 align="center" cellpadding=0 cellspacing=0>
+            <tr>
+              <td colspan="2">
+
+              </td>
+            </tr>
+<!-- start search -->
+<form name=SForm action="flight.php" method="get">
+            <tr>
+              <td align="center" colspan="2">
+                出发地: <input type="text" value="" size="15" id="departure" name="departure" mod="address|notice" mod_address_source="hotel" mod_address_suggest="@Beijing|北京|53@Shanghai|上海|321@Shenzhen|深圳|91@Guangzhou|广州|80@Qingdao|青岛|292@Chengdu|成都|324@Hangzhou|杭州|383@Wuhan|武汉|192@Tianjin|天津|343@Dalian|大连|248@Xiamen|厦门|61@Chongqing|重庆|394@" mod_address_reference="cityid" mod_notice_tip="中文/拼音" />
+                目的地: <input type="text" value="" size="15" id="destination" name="destination" mod="address|notice" mod_address_source="hotel" mod_address_suggest="@Beijing|北京|53@Shanghai|上海|321@Shenzhen|深圳|91@Guangzhou|广州|80@Qingdao|青岛|292@Chengdu|成都|324@Hangzhou|杭州|383@Wuhan|武汉|192@Tianjin|天津|343@Dalian|大连|248@Xiamen|厦门|61@Chongqing|重庆|394@" mod_address_reference="getcityid" mod_notice_tip="中文/拼音" />
+				出发日期: <input type="text" size=8 maxlength=256 name="ddate1" id="ddate1" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="Wdate" value=""> ~
+                返回日期: <input type="text" size=8 maxlength=256 name="ddate2" id="ddate2" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="Wdate" value="">&nbsp;
+
+                <input type="submit" name="Submit" value="查詢">
+                <br>
+              </td>
+            </tr>
+</form>
+<!-- end search -->
+
+<!-- start search -->
+<script language="javascript">
+<!--
+$("#departure").val("{departure}");
+$("#destination").val("{destination}");
+$("#ddate1").val("{ddate1}");
+$("#ddate2").val("{ddate2}");
+// -->
+</script>
+<!-- end search -->
+
+            <tr bgcolor="#000000">
+              <td colspan="2">
+                <table border=0 cellpadding=4 cellspacing=1 width=100%>
+<!-- start page_list -->
+                  <tr bgcolor="#FDFFE6">
+
+
+                    <td bgcolor="#FDFFE6" align="center">
+                        flight
+                    </td>
+                    <td bgcolor="#FDFFE6" align="center">
+                        takeoff_time
+                    </td>
+                    <td bgcolor="#FDFFE6" align="center">
+                        arrival_time
+                    </td>
+                    <td bgcolor="#FDFFE6" align="center">
+                        ontimerate
+                    </td>
+                    <td bgcolor="#FDFFE6" align="center">
+                        price
+                    </td>
+                  </tr>
+<!-- end page_list -->
+
+
+<!-- start list -->
+                  <tr class="list" bgcolor="#FFFFFF">
+                    <td align="center">
+                    {flight}
+                    </td>
+                    <td align="center">
+                    {takeoff_time}
+                    </td>
+                    <td align="center">
+                    {arrival_time}
+                    </td>
+                    <td align="center">
+                    {ontimerate}
+                    </td>
+                    <td align="center">
+                    {price}
+                    </td> 
+                  </tr>
+<!-- end list -->
+                </table>
+              </td>
+            </tr>
+<br>
+</table>
+</body>
+</html>
